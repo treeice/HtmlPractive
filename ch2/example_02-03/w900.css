@@ -1,0 +1,14 @@
+.w900 {
+	display: block;
+}
+/*
+根据CSS规范的规定，
+每一个网页元素都有一个display属性，用于确定该元素的类型，
+每一个元素都有默认的display属性值，
+比如div元素，它的默认display属性值为“block”，成为“块级”元素(block-level)，
+而span元素的默认display属性值为“inline”，称为“行内”元素。
+元素显示的方式：
+block是一块状元素的方式显示,独占一行
+inline是以内联元素的方式显示
+none是不显示
+*/

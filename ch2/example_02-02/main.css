@@ -1,0 +1,55 @@
+.CardLink {
+	display: block;
+	color: #666;                 /*字体颜色 */
+	text-shadow: 0 2px 0 #efefef;/*字体阴影：  
+									第1个参数是阴影在y轴水平方向位置，
+									第2个参数是阴影在y轴垂直方向位置
+									第3个参数是阴影模糊值 0-20
+									第4个参数是阴影颜色*/
+	text-decoration: none;
+	height: 2.75rem;/*横线间距大小 */
+	line-height: 2.75rem;/*文字段落列表间距大小 */
+	border-bottom: 1px solid #bbb;/*横线：
+									第1个参数是横线粗细大小
+									第2个参数是横线的样式。实心填满
+									第3个参数是横线颜色*/
+	position: relative;
+}
+
+@media (min-width: 300px) {
+	.CardLink {
+		padding-left: 1.8rem; /*到左侧的距离 */
+		font-size: 1.6rem;/*字体大小 */
+	}
+}
+
+.CardLink:before {
+	display: none;
+	position: absolute;
+	top: 50%;/*图标距离顶端距离 */
+	transform: translateY(-50%);
+	left: 0;/*图标距离左侧距离 */
+}
+
+/* [before]修改为[after] 图标由蚊子头部修改为文字的尾部*/
+.CardLink_Hearts:after {
+	content: "❤";
+}
+
+.CardLink_Clubs:after {
+	content: "♣";
+}
+
+.CardLink_Spades:before {
+	content: "♠";
+}
+
+.CardLink_Diamonds:before {
+	content: "♦";
+}
+
+@media (min-width: 300px) {
+	.CardLink:before {
+		display: block;
+	}
+}

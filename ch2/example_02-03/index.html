@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <!-- <meta> 元素可提供有关页面的元信息（meta-information），
+  比如针对搜索引擎和更新频度的描述和关键词。
+  <meta> 标签位于文档的头部，不包含任何内容。
+  <meta> 标签的属性定义了与文档相关联的名称/值对。
+  -->
+  <meta charset="utf-8">
+  <title>Media Query test - which browser downloads which asset?</title>
+  <meta name="description" content="Quick test to determine which browsers download all media queries">
+  <meta name="viewport" content="width=device-width">
+  <!-- 
+  viewport的作用：
+  1.网页宽度默认等于屏幕宽度（width=device-width），原始缩放比例（initial-scale=1）为1.0，
+  即网页初始大小占屏幕面积的100%。 所有主流浏览器都支持这个设置
+  2.不使用绝对宽度 由于网页会根据屏幕宽度调整布局，
+  所以不能使用绝对宽度的布局，也不能使用具有绝对宽度的元素。
+  由于网页会根据屏幕宽度调整布局，所以不能使用绝对宽度的布局，也不能使用具有绝对宽度的元素。这一条非常重要。
+  
+  无视设备的真实分辨率，直接通过dpi，在物理尺寸和浏览器之间重设分辨率，这个分辨率和设备的分辨率无关。
+  设备的分辨率不同,物理尺寸也不同，但你可以通过设置viewport让它们在浏览器里有相同的分辨率。
+  
+  比如说，网站是800px宽，可以通过设置viewport的width=800，
+  来让网站在不同的设备（3.5寸-320 * 480的iphone3 gs、3.5寸-640 * 960的iphone4或者9.7寸-1024*768的ipad2）上都刚好满屏显示你的网站。
+  
+  viewport 语法介绍：
+  width - viewport的宽度
+  height - viewport的高度
+  initial-scale - 初始的缩放比例
+  minimum-scale - 允许用户缩放到的最小比例
+  maximum-scale - 允许用户缩放到的最大比例
+  user-scalable - 用户是否可以手动缩放
+  -->
+  <style type="text/css">
+  
+    div {
+      display: none;
+      background-color: green;
+      height: 3rem;
+      line-height: 3rem;
+      font-size: 1rem;
+      text-align: center;
+    }
+  </style>
+  <!-- css文件引入方式：直接写入对应位置-->
+  <link rel="stylesheet" media="(min-width: 300px)" href="w300.css" />
+  <link rel="stylesheet" media="(min-width: 600px)" href="w600.css" />
+  <link rel="stylesheet" media="(min-width: 900px)" href="w900.css" />
+  <link rel="stylesheet" media="(min-width: 1200px)" href="w1200.css" />
+</head>
+<body>
+  <div class="w300">width 300px file downloaded</div>
+  <div class="w600">width 600px file downloaded</div>
+  <div class="w900">width 900px file downloaded</div>
+  <div class="w1200">width 1200px file downloaded</div>
+</body>
+</html>

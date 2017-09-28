@@ -1,0 +1,68 @@
+/*
+1、max-device-width  是设备整个显示区域的宽度，例如，真实的设备屏幕宽度,#取决于打开网页的硬件媒体设备。
+         device-width: 渲染表面的宽度（对我们来说，就是设备屏幕的宽度）
+         device-height:渲染表面的高度（对我们来说，就是设备屏幕的高度）
+
+2、max-width   是目标显示区域的宽度，例如，软件浏览器宽度。
+	   width:  视口宽度（视口指浏览器窗口内的内容区域，不包含工具栏，标签栏等）
+	   height：视口高度
+
+3、如果使用max-device-width，那么在PC浏览器上浏览网页时，缩小或放大浏览器时是不执行CSS的，
+   因为“PC设备”没有变化。
+   但如果使用max-width，缩小或放大浏览器时是执行CSS的，因为“显示区域”即浏览器大小发生了变化。
+
+4、如果使用max-device-width，那么当手机由竖变横时，CSS是不执行的，因为“手机宽度”并没有变化。
+   如果使用max-width，那么当手机由竖变横时，CSS是执行的，因为“显示区域”发生了变化。
+
+5、通常，面向“移动设备”用户使用max-device-width；面向“PC设备”用户使用max-width。
+*/
+body {
+  background-color: black;
+}
+/*
+原网页设定背景色为黑色
+以下设定当min-device-width: 200px【最小渲染表面的宽度到达200px或更高】时候，
+条件成立，显示绿色
+*/
+@media screen and (min-device-width: 200px) {
+  body {
+    background-color: green;
+  }
+}
+@media screen and (min-device-width: 400px) {
+  body { 
+	background-color: blue;
+  }
+}
+@media screen and (min-device-width: 600px) {
+  body {
+    background-color: yellow;
+  }
+}
+@media screen and (min-device-width: 800px) {
+  body {
+    background-color: orange;
+  }
+}
+
+@media screen and (min-device-width: 1000px) {	
+  body {
+    background-color: red;
+  }
+}
+/*
+当min-device-width 修改为 max-device-width情况下，
+以上例子，若渲染表面修改为【max-device-width：1000px】，显示红色
+而其余的设定【min-device-width 修改为max-device-width】也做出修改的情况的时候
+
+按顺序：
+1.最小渲染表面的宽度未达到200px或到达200px时候，条件成立，显示绿色，检测下一条条件
+2.最小渲染表面的宽度未达到400px或到达400px时候，条件成立，覆盖上一层的颜色，显示蓝色，检测下一条条件
+...
+5.最小渲染表面的宽度未达到1000px或到达1000px时候，条件成立，覆盖上一层的颜色，显示红色
+
+最后显示排序，在0px到1000px的时候
+都由最后的设定条件来覆盖，显示红色
+当大于1000px时候，现实原底色 黑色
+
+*/
